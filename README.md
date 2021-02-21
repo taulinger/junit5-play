@@ -34,7 +34,7 @@ Prerquisites
 Steps
 - Clone the Github project:
 ```
-git clone https://github.com/taulinger/junit-play
+git clone https://github.com/taulinger/junit5-play.git
 ```
 - Change to the git repository and run Maven:
 ```
