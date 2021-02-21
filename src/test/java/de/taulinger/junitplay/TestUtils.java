@@ -6,8 +6,10 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 import java.lang.reflect.Method;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import static java.util.stream.Collectors.joining;
@@ -21,6 +23,8 @@ import org.junit.jupiter.api.TestInfo;
  * @author taulinger
  */
 public class TestUtils {
+
+    private static final long startTime = System.currentTimeMillis();
 
     public static enum Browser {
         Firefox, Chromium, Webkit
@@ -135,7 +139,7 @@ public class TestUtils {
                     .append(then.substring(0, 1).toUpperCase())
                     .append(then.substring(1))
                     .append(testInfo.getDisplayName().split(" ")[1]);
-            page.screenshot(new Page.ScreenshotOptions().withPath(Paths.get("screenshots", sb + ".png")));
+            page.screenshot(new Page.ScreenshotOptions().withPath(Paths.get("screenshots", new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new Date(startTime)), sb + ".png")));
 
         }
     }
