@@ -1,6 +1,6 @@
 package de.taulinger.junitplay;
 
-import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.LoadState;
 import de.taulinger.junitplay.TestUtils.ReplaceCamelCase;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.DisplayNameGeneration;
@@ -22,7 +22,7 @@ class MainMenuTest extends TestUtils {
             void thenTheMainMenuShouldShowAButtonIn(Browser type) {
                 setup(type, ClientType.Desktop);
                 
-                page.waitForLoadState(Page.LoadState.NETWORKIDLE);
+                page.waitForLoadState(LoadState.NETWORKIDLE);
                 
                 assertEquals("Menü öffnen", page.innerText(".ga-visible-collapsed"));
             }
@@ -42,7 +42,7 @@ class MainMenuTest extends TestUtils {
 
                 setup(type, ClientType.Mobile);
                
-                page.waitForLoadState(Page.LoadState.NETWORKIDLE);
+                page.waitForLoadState(LoadState.NETWORKIDLE);
                 
                 assertEquals("Menü", page.innerText(".btn.ga-menu-bt.ng-scope"));
             }

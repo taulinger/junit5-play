@@ -139,7 +139,7 @@ public class TestUtils {
                     .append(then.substring(0, 1).toUpperCase())
                     .append(then.substring(1))
                     .append(testInfo.getDisplayName().split(" ")[1]);
-            page.screenshot(new Page.ScreenshotOptions().withPath(Paths.get("screenshots", new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new Date(startTime)), sb + ".png")));
+            page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshots", new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new Date(startTime)), sb + ".png")));
 
         }
     }
@@ -149,11 +149,11 @@ public class TestUtils {
     }
 
     protected BrowserContext newDesktopBrowserContext() {
-        return browser.newContext(new com.microsoft.playwright.Browser.NewContextOptions().withViewport(800, 600));
+        return browser.newContext(new com.microsoft.playwright.Browser.NewContextOptions().setViewportSize(800, 600));
     }
 
     protected BrowserContext newMobileBrowserContext() {
-        return browser.newContext(new com.microsoft.playwright.Browser.NewContextOptions().withViewport(375, 667).withDeviceScaleFactor(2));
+        return browser.newContext(new com.microsoft.playwright.Browser.NewContextOptions().setViewportSize(375, 667).setDeviceScaleFactor(2));
     }
 
     static class ReplaceCamelCase extends DisplayNameGenerator.Standard {
