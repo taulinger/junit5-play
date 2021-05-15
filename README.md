@@ -27,7 +27,7 @@ Setup for a JUnit 5 / Playwright BDD-style testing project. Uses the JUnit Conso
 
 ## Usage
 
-Prerquisites
+Prerequisites
 - JDK 11 or later must be installed (https://adoptopenjdk.net/)
 - Maven 3 must be installed
 
